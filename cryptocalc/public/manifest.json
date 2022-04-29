@@ -2,8 +2,8 @@
   "name": "CryptoCalc",
   "short_name": "CryptoCalc",
   "description": "A DApp that allows you to convert any currency (digital or fiat)",
-  "background_color": "#0E5FF2",
-  "theme_color": "#0E5FF2",
+  "background_color": "#009AF4",
+  "theme_color": "#009AF4",
   "icons": [
     {
       "src": "./icons/manifest-icon-192.png",

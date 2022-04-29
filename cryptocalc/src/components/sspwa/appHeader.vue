@@ -6,7 +6,7 @@
       </button>
     </div>
     <div id="logo">
-      <img @click="home" alt="SSPWA logo" src="../../assets/sspwa-logo.svg">
+      <img @click="home" alt="SSPWA logo" src="../../assets/cryptocalc-logo.png">
     </div>
     <div id="appBarButton">
       <button class="background-animation" @click="toggleAppBar">

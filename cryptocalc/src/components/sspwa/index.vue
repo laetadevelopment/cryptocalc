@@ -94,11 +94,11 @@ p {
   margin-bottom: 10px;
 }
 a {
-  color: rgb(14,95,242);
+  color: rgb(0,154,244);
   text-decoration: none;
 }
 a:hover {
-  color: rgba(14,95,242,75%);
+  color: rgba(0,154,244,75%);
 }
 /* TODO: add icons to the navigation buttons */
 button {
@@ -111,32 +111,32 @@ button {
   cursor: pointer;
 }
 .background-animation {
-  border: 3px solid rgb(14,95,242);
-  background: rgba(14,95,242,90%);
+  border: 3px solid rgb(0,154,244);
+  background: rgba(0,154,244,90%);
   color: rgb(255,255,255);
   animation: background 10s infinite alternate;
 }
 .background-animation:hover {
-  border: 3px solid rgb(14,95,242);
-  background: rgba(14,95,242,75%);
+  border: 3px solid rgb(0,154,244);
+  background: rgba(0,154,244,75%);
   animation: bghover 10s infinite alternate;
 }
 @keyframes background {
   0% {
-    border-color: rgb(14,95,242);
-    background: rgba(14,95,242,90%);
+    border-color: rgb(0,154,244);
+    background: rgba(0,154,244,90%);
   }
   25% {
-    border-color: rgb(255,151,119);
-    background: rgba(255,151,119,90%);
+    border-color: rgb(4,118,217);
+    background: rgba(4,118,217,90%);
   }
   50% {
-    border-color: rgb(186,220,221);
-    background: rgba(186,220,221,90%);
+    border-color: rgb(138,227,221);
+    background: rgba(138,227,221,90%);
   }
   75% {
-    border-color: rgb(92,158,167);
-    background: rgba(92,158,167,90%);
+    border-color: rgb(255,210,4);
+    background: rgba(255,210,4,90%);
   }
   100% {
     border-color: rgb(62,140,132);
@@ -145,20 +145,20 @@ button {
 }
 @keyframes bghover {
   0% {
-    border-color: rgb(14,95,242);
-    background: rgba(14,95,242,75%);
+    border-color: rgb(0,154,244);
+    background: rgba(0,154,244,75%);
   }
   25% {
-    border-color: rgb(255,151,119);
-    background: rgba(255,151,119,75%);
+    border-color: rgb(4,118,217);
+    background: rgba(4,118,217,75%);
   }
   50% {
-    border-color: rgb(186,220,221);
-    background: rgba(186,220,221,75%);
+    border-color: rgb(138,227,221);
+    background: rgba(138,227,221,75%);
   }
   75% {
-    border-color: rgb(92,158,167);
-    background: rgba(92,158,167,75%);
+    border-color: rgb(255,210,4);
+    background: rgba(255,210,4,75%);
   }
   100% {
     border-color: rgb(62,140,132);
