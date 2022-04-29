@@ -1,7 +1,7 @@
 {
-  "name": "SSPWA",
-  "short_name": "SSPWA",
-  "description": "A progressive web app experience that feels like interacting with a movie.",
+  "name": "CryptoCalc",
+  "short_name": "CryptoCalc",
+  "description": "A DApp that allows you to convert any currency (digital or fiat)",
   "background_color": "#0E5FF2",
   "theme_color": "#0E5FF2",
   "icons": [
