@@ -1,4 +1,4 @@
-# sspwa
+# cryptocalc
 
 ## Project setup
 ```

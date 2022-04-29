@@ -1,15 +1,16 @@
 <template>
   <div v-if="showHome" id="home" class="page">
     <div class="page-title">
-      <h1 ref="title">Single Screen Progressive Web App</h1>
+      <h1 ref="title">CryptoCalc Currency Converter DApp</h1>
     </div>
     <div class="page-content" ref="content">
-      <h2>The mission of the SSPWA (Single Screen Progressive Web App) Template is to create a progressive web app experience that feels like interacting with a movie.</h2>
-      <p>SSPWA (Single Screen Progressive Web App) is a MIT-licensed open source project built with the Vue.js Progressive JavaScript Framework. A good movie experience feels the same on an old, square TV as it does on a new, widescreen TV that has the same screen size. The modern screen may provide an enhanced experience, but you do not loose the quality of the movie in terms of storyline and performance of the actors. A SSPWA will provide a similar experience where the actors in a movie can be compared to the elements on the screen of the app. The app will feel the same regardless of what device you open the app with.</p>
+      <h2>The mission of the CryptoCalc DApp is to create a decentralized, open source DApp that allows you to convert any currency (digital or fiat).</h2>
+      <p>CryptoCalc is a MIT-licensed open source project built with the <a title="SSPWA Template" href="https://sspw.app">SSPWA Template</a> using Vue.js, Solidity smart contracts, and Golang microservices. End the frustration over how long it takes to convert one currency to another. The process can be excruciating slow when you are researching digital or crypto currencies, especially when you must start with one currency and convert it to multiple currencies before getting to the final currency. The CryptoCalc DApp will do that for you on the fly as easily as possible.</p>
+      <p>Connect your MetaMask wallet or enter your starting amount and currency to get started. Easily create a chain of currency conversions and calculate the final amount in any currency you choose. You can even add gas fees when converting one crypto or fiat currency to another. Use this app to quickly calculate profit of potential investment opportunities. You will even be able to add stock trades on the NYSE to your chain of conversions.</p>
     </div>
     <div class="page-cta" ref="cta">
       <button class="background-animation" @click="view">View on GitHub</button>
-      <button class="background-animation" @click="load">Learn More</button>
+      <button class="background-animation" @click="load">Go Home</button>
     </div>
   </div>
 </template>
@@ -51,10 +52,10 @@ export default {
       }
     },
     view() {
-      window.open('https://github.com/laetadevelopment/sspwa','_blank');
+      window.open('https://github.com/laetadevelopment/cryptocalc','_blank');
     },
     load() {
-      this.$emit("load", "learnMore");
+      this.$emit("load", "home");
     }
   },
   mounted() {

@@ -1,7 +1,6 @@
 <template>
   <div id="appMenu">
     <button class="background-animation" @click="home">Home</button>
-    <button class="background-animation" @click="learnMore">Learn More</button>
     <button class="background-animation" @click="view">View on GitHub</button>
   </div>
 </template>
@@ -14,13 +13,9 @@ export default {
       this.$emit("toggle", "appMenu");
       this.$emit("load", "home");
     },
-    learnMore() {
-      this.$emit("toggle", "appMenu");
-      this.$emit("load", "learnMore");
-    },
     view() {
       this.$emit("toggle", "appMenu");
-      window.open('https://github.com/laetadevelopment/sspwa','_blank');
+      window.open('https://github.com/laetadevelopment/cryptocalc','_blank');
     }
   }
 }

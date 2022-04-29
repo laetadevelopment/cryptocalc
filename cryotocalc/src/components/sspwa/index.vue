@@ -3,7 +3,6 @@
     <appHeader @load="load" @toggle="toggle" />
     <main>
       <home v-if="showHome" @load="load" />
-      <learnMore v-if="showLearnMore" @load="load" @toggle="toggle" />
     </main>
     <appMenu v-if="showAppMenu" @load="load" @toggle="toggle" />
     <appBar v-if="showAppBar" />
@@ -15,7 +14,6 @@
 import appHeader from './appHeader.vue'
 import home from './views/home.vue'
 // import app views to load in main element
-import learnMore from './views/learnMore.vue'
 import appFooter from './appFooter.vue'
 import appMenu from './appMenu.vue'
 import appBar from './appBar.vue'
@@ -25,7 +23,6 @@ export default {
   components: {
     appHeader,
     home,
-    learnMore,
     appFooter,
     appMenu,
     appBar
@@ -33,7 +30,6 @@ export default {
   data() {
     return {
       showHome: true,
-      showLearnMore: false,
       showAppMenu: false,
       showAppBar: true
     }
@@ -61,13 +57,6 @@ export default {
       if (page == 'home') {
         this.showLearnMore = false;
         this.showHome = true;
-        if (this.showAppMenu) {
-          this.showAppMenu = false;
-        }
-      }
-      if (page == 'learnMore') {
-        this.showHome = false;
-        this.showLearnMore = true;
         if (this.showAppMenu) {
           this.showAppMenu = false;
         }
