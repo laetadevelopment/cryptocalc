@@ -25,13 +25,13 @@ Connect your MetaMask wallet or enter your starting amount and currency to get s
 
 #### v0.0 - Phase Zero
 
-##### v0.0.1 - remove default SSPWA branding
+##### v0.0.1 - replace default SSPWA branding with new branding
 
 #### v0.1 - Phase One
 
-#### v0.1.1 - create new Truffle project
+##### v0.1.1 - create new Truffle project
 
-#### v0.1.2 - create new Go project
+##### v0.1.2 - create new Go project
 
 
 ## Version One
