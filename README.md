@@ -25,4 +25,36 @@ Connect your MetaMask wallet or enter your starting amount and currency to get s
 
 #### v0.0 - Phase Zero
 
-##### v0.0.1 - replace SSPWA branding with new branding
+##### v0.0.1 - remove default SSPWA branding
+
+#### v0.1 - Phase One
+
+#### v0.1.1 - create new Truffle project
+
+#### v0.1.2 - create new Go project
+
+
+## Version One
+
+
+#### v1.0 - Phase Zero
+
+##### v1.0.1 - create SSPWA scaffolding
+
+##### v1.0.2 - create Truffle scaffolding
+
+##### v1.0.3 - create Go scaffolding
+
+#### v1.1 - Phase One
+
+##### v1.1.1 - add content for SSPWA
+
+##### v1.1.2 - add styling to content for SSPWA
+
+#### v1.2 - Phase Two
+
+##### v1.2.1 - create CI/CD pipeline for project
+
+##### v1.2.2 - create test cases for project
+
+##### v1.2.3 - create documentation for project
