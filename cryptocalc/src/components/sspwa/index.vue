@@ -71,7 +71,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  font-family: oswald, sans-serif;
+  font-family: proxima-soft, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -82,8 +82,8 @@ main {
   display: flex;
 }
 h1, h2, h3 {
-  font-family: raleway-v20-deprecated, sans-serif;
-  font-weight: 900;
+  font-family: pt-sans-pro-narrow, sans-serif;
+  font-weight: 700;
   font-style: normal;
   margin: 0;
   margin-bottom: 10px;
@@ -192,7 +192,7 @@ button {
   overflow: hidden;
 }
 .page-content h2 {
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
 .page-content p {
   font-size: 1em;

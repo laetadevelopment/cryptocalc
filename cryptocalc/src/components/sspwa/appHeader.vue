@@ -2,7 +2,7 @@
   <header>
     <div id="menuButton">
       <button class="background-animation" @click="toggleAppMenu">
-        <img alt="Toggle Menu" src="../../assets/ss-icon.svg">
+        <img alt="Toggle Menu" src="../../assets/cc-icon.svg">
       </button>
     </div>
     <div id="logo">
