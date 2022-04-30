@@ -177,12 +177,9 @@ button {
   }
 }
 .page {
+  width: 100%;
   margin: 10px;
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: flex-start;
   overflow: hidden;
 }
 .page-title {
@@ -200,6 +197,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+  justify-content: center;
   overflow: hidden;
 }
 .page-content h2 {

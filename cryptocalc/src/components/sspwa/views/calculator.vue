@@ -4,7 +4,7 @@
       <h1 ref="title">Currency Conversion Calculator</h1>
     </div>
     <div class="page-content" ref="content">
-      <h2>What currency would you like to start with?</h2>
+      <h3>What currency would you like to start with?</h3>
     </div>
     <div class="page-cta" ref="cta">
       <button class="background-animation" @click="view">View on GitHub</button>
