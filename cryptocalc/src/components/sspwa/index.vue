@@ -3,6 +3,7 @@
     <appHeader @load="load" @toggle="toggle" />
     <main>
       <home v-if="showHome" @load="load" />
+      <calculator v-if="showCalculator" @load="load" />
     </main>
     <appMenu v-if="showAppMenu" @load="load" @toggle="toggle" />
     <appBar v-if="showAppBar" />
@@ -14,6 +15,7 @@
 import appHeader from './appHeader.vue'
 import home from './views/home.vue'
 // import app views to load in main element
+import calculator from './views/calculator.vue'
 import appFooter from './appFooter.vue'
 import appMenu from './appMenu.vue'
 import appBar from './appBar.vue'
@@ -23,6 +25,7 @@ export default {
   components: {
     appHeader,
     home,
+    calculator,
     appFooter,
     appMenu,
     appBar
@@ -30,6 +33,7 @@ export default {
   data() {
     return {
       showHome: true,
+      showCalculator: false,
       showAppMenu: false,
       showAppBar: true
     }
@@ -55,8 +59,15 @@ export default {
     // TODO: refactor page loading logic and make experience more interactive
     load(page) {
       if (page == 'home') {
-        this.showLearnMore = false;
         this.showHome = true;
+        this.showCalculator = false;
+        if (this.showAppMenu) {
+          this.showAppMenu = false;
+        }
+      }
+      if (page == 'calculator') {
+        this.showHome = false;
+        this.showCalculator = true;
         if (this.showAppMenu) {
           this.showAppMenu = false;
         }
@@ -193,6 +204,9 @@ button {
 }
 .page-content h2 {
   font-size: 1.5em;
+}
+.page-content h3 {
+  font-size: 1.2em;
 }
 .page-content p {
   font-size: 1em;
