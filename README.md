@@ -1,5 +1,5 @@
 # CryptoCalc
- [CryptoCalc Currency Converter DApp](https://cryptocalc.app "CryptoCalc")
+ [Currency Converter DApp](https://cryptocalc.app "CryptoCalc")
 
 
 
