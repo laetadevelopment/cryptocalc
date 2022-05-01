@@ -5,6 +5,7 @@
     </div>
     <div class="page-content" ref="content">
       <h3>What currency would you like to start with?</h3>
+      <selector />
     </div>
     <div class="page-cta" ref="cta">
       <button class="background-animation" @click="view">View on GitHub</button>
@@ -14,8 +15,13 @@
 </template>
 
 <script>
+import selector from '../../cryptocalc/selector.vue'
+
 export default {
   name: 'calculator',
+  components: {
+    selector
+  },
   data() {
     return {
       showCalculator: true

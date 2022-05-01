@@ -195,6 +195,7 @@ button {
 .page-content {
   height: 75%;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
