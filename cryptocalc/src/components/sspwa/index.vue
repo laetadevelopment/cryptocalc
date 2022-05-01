@@ -121,6 +121,26 @@ button {
   font-weight: bold;
   cursor: pointer;
 }
+input {
+  width: 150px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 3px solid rgb(0,0,0);
+  box-sizing: border-box;
+  background: transparent;
+  color: rgb(0,0,0);
+  font-weight: bold;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .background-animation {
   border: 3px solid rgb(0,154,244);
   background: rgba(0,154,244,90%);

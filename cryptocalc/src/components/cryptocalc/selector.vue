@@ -1,7 +1,10 @@
 <template>
   <div id="selector">
-    <button @click="open">Currency Selector</button>
-    <currencySelector v-if="showCurrencySelector" @close="close" />
+    <button v-if="!currencySelected" @click="open">Currency Selector</button>
+    <button v-if="currencySelected" @click="open" ref="currency">{{currency}}</button>
+    <input v-if="showCurrencyAmount" type="number" placeholder="Amount" />
+    <input v-if="showConversionFees" type="number" placeholder="Fees" />
+    <currencySelector v-if="showCurrencySelector" @close="close" @select="select" />
   </div>
 </template>
 
@@ -13,9 +16,14 @@ export default {
   components: {
     currencySelector
   },
+  props: ['name'],
   data() {
     return {
-      showCurrencySelector: false
+      currency: null,
+      currencySelected: false,
+      showCurrencySelector: false,
+      showCurrencyAmount: false,
+      showConversionFees: false
     }
   },
   methods: {
@@ -25,6 +33,20 @@ export default {
     close(selector) {
       if (selector == 'currencySelector') {
         this.showCurrencySelector = false;
+      }
+    },
+    select(currency) {
+      if (this.name == "starting") {
+        this.currency = currency;
+        this.currencySelected = true;
+        this.showCurrencyAmount = true;
+        this.$emit("show", "ending");
+      }
+      if (this.name == "ending") {
+        this.currency = currency;
+        this.currencySelected = true;
+        this.showConversionFees = true;
+        this.$emit("show", "calculate");
       }
     }
   }
@@ -39,9 +61,16 @@ export default {
 #selector button {
   height: 50px;
   border-radius: 50px;
+  margin: 10px;
 }
 #selector button:hover {
   color: rgb(255,255,255);
   background: rgb(0,0,0);
+}
+#selector input {
+  height: 50px;
+  border-radius: 50px;
+  margin: 10px;
+  text-align: center;
 }
 </style>

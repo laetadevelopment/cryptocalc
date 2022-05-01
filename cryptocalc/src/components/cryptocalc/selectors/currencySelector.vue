@@ -2,10 +2,10 @@
   <div id="currencySelector">
     <h2>Currency Selector</h2>
     <div class="currency-buttons">
-      <button>USD</button>
-      <button>AVAX</button>
-      <button>TIME</button>
-      <button>MEMO</button>
+      <button @click="selectCurrency">USD</button>
+      <button @click="selectCurrency">AVAX</button>
+      <button @click="selectCurrency">TIME</button>
+      <button @click="selectCurrency">MEMO</button>
     </div>
     <button class="background-animation" @click="close">Close</button>
   </div>
@@ -15,6 +15,10 @@
 export default {
   name: 'currencySelector',
   methods: {
+    selectCurrency(event) {
+      this.$emit("close", "currencySelector");
+      this.$emit("select", event.target.innerText);
+    },
     close() {
       this.$emit("close", "currencySelector");
     }

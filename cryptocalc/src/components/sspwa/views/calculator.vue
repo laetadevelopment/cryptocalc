@@ -3,9 +3,23 @@
     <div class="page-title">
       <h1 ref="title">Currency Conversion Calculator</h1>
     </div>
-    <div class="page-content" ref="content">
-      <h3>What currency would you like to start with?</h3>
-      <selector />
+    <div v-if="showStarting" class="page-content" ref="content">
+      <div class="conversion-starting">
+        <h3>What currency would you like to start with?</h3>
+        <selector :key="startingKey" name="starting" @show="show" />
+      </div>
+      <div v-if="showEnding" class="conversion-ending">
+        <h3>What currency would you like to convert to?</h3>
+        <selector :key="endingKey" name="ending" @show="show" />
+      </div>
+      <div v-if="showCalculate" class="calculate-buttons">
+        <button>Add Conversion</button>
+        <button class="background-animation" @click="calculate">Calculate</button>
+      </div>
+      <div v-if="showCalculated" class="calculated">
+        <h3>You will end up with...</h3>
+        <button class="background-animation" @click="reset">New Conversion</button>
+      </div>
     </div>
     <div class="page-cta" ref="cta">
       <button class="background-animation" @click="view">View on GitHub</button>
@@ -22,9 +36,18 @@ export default {
   components: {
     selector
   },
+  props: {
+    name: String
+  },
   data() {
     return {
-      showCalculator: true
+      showCalculator: true,
+      showStarting: true,
+      startingKey: 0,
+      showEnding: false,
+      endingKey: 0,
+      showCalculate: false,
+      showCalculated: false
     }
   },
   methods: {
@@ -60,6 +83,24 @@ export default {
     },
     load() {
       this.$emit("load", "home");
+    },
+    show(name) {
+      if (name == "ending") {
+        this.showEnding = true;
+      }
+      if (name == "calculate") {
+        this.showCalculate = true;
+      }
+    },
+    calculate() {
+      this.showCalculate = false;
+      this.showCalculated = true;
+    },
+    reset() {
+      this.startingKey += 1;
+      this.endingKey += 1;
+      this.showEnding = false;
+      this.showCalculated = false;
     }
   },
   mounted() {
@@ -68,3 +109,28 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#calculator h3 {
+  text-align: center;
+}
+.calculate-buttons button {
+  height: 50px;
+  border-radius: 50px;
+  margin: 10px;
+  color: rgb(255,255,255);
+  background: rgb(0,0,0);
+}
+.calculate-buttons button:hover {
+  color: rgb(0,0,0);
+  background: rgb(255,255,255);
+}
+.calculate-buttons .background-animation:hover {
+  color: rgb(255,255,255);
+}
+.calculated button {
+  height: 50px;
+  border-radius: 50px;
+  margin: 10px;
+}
+</style>
