@@ -7,3 +7,4 @@
 ### blue box shows up around buttons when pressed on Glaxy S20
 ### logo is stretching in iOS
 ### need to add PWA splash screens for iOS
+### keyboard from number inputs pushes up elements on screen on Galaxy S20 in App
