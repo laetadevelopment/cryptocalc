@@ -198,8 +198,7 @@ button {
   height: 75%;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   overflow: hidden;
 }
