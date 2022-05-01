@@ -43,9 +43,11 @@ export default {
 .currency-buttons {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .currency-buttons button {
+  margin: 10px;
   color: rgb(255,255,255);
   border-color: rgb(255,255,255);
 }
