@@ -13,12 +13,15 @@
         <selector :key="endingKey" name="ending" @show="show" />
       </div>
       <div v-if="showCalculate" class="calculate-buttons">
-        <button>Add Conversion</button>
+        <button @click="add">Add Conversion</button>
         <button class="background-animation" @click="calculate">Calculate</button>
       </div>
       <div v-if="showCalculated" class="calculated">
         <h3>You will end up with...</h3>
-        <button class="background-animation" @click="reset">New Conversion</button>
+        <div class="calculated-buttons">
+          <button class="background-animation" @click="save">Save Conversion</button>
+          <button @click="reset">New Conversion</button>
+        </div>
       </div>
     </div>
     <div class="page-cta" ref="cta">
@@ -93,13 +96,23 @@ export default {
       }
     },
     calculate() {
+      // TODO: add logic to get current currency values via oracles and calculate conversion
       this.showCalculate = false;
       this.showCalculated = true;
+    },
+    add() {
+      // TODO: add logic to add another conversion to conversion chain
+      this.reset();
+    },
+    save() {
+      // TODO: add logic to save conversion chains via conversions microservice
+      this.reset();
     },
     reset() {
       this.startingKey += 1;
       this.endingKey += 1;
       this.showEnding = false;
+      this.showCalculate = false;
       this.showCalculated = false;
     }
   },
@@ -132,5 +145,9 @@ export default {
   height: 50px;
   border-radius: 50px;
   margin: 10px;
+}
+.calculated button:hover {
+  color: rgb(255,255,255);
+  background: rgb(0,0,0);
 }
 </style>
