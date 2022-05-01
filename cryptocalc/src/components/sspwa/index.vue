@@ -180,6 +180,8 @@ button {
   width: 100%;
   margin: 10px;
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 .page-title {
