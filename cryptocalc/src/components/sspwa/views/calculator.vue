@@ -6,18 +6,22 @@
     <div v-if="showStarting" class="page-content" ref="content">
       <div class="conversion-starting">
         <h3>What currency would you like to start with?</h3>
-        <selector :key="startingKey" name="starting" @show="show" />
+        <selector :key="selectorKey" name="starting" @show="show" @currency="starting" @amount="amount" />
       </div>
       <div v-if="showEnding" class="conversion-ending">
         <h3>What currency would you like to convert to?</h3>
-        <selector :key="endingKey" name="ending" @show="show" />
+        <selector :key="selectorKey" name="ending" @show="show" @currency="ending" />
+      </div>
+      <div v-if="showFee" class="conversion-fee">
+        <h3>Is there a conversion fee? (optional)</h3>
+        <selector :key="selectorKey" name="fee" @show="show" @currency="feeCurrency" @fee="fee" />
       </div>
       <div v-if="showCalculate" class="calculate-buttons">
         <button @click="add">Add Conversion</button>
         <button class="background-animation" @click="calculate">Calculate</button>
       </div>
       <div v-if="showCalculated" class="calculated">
-        <h3>You will end up with...</h3>
+        <h3>{{ conversion }} is {{ conversionAmount }} {{ endingCurrency }}</h3>
         <div class="calculated-buttons">
           <button class="background-animation" @click="save">Save Conversion</button>
           <button @click="reset">New Conversion</button>
@@ -46,11 +50,18 @@ export default {
     return {
       showCalculator: true,
       showStarting: true,
-      startingKey: 0,
+      selectorKey: 0,
+      startingCurrency: null,
+      startingAmount: 0,
       showEnding: false,
-      endingKey: 0,
+      endingCurrency: null,
+      showFee: false,
+      conversionFeeCurrency: null,
+      conversionFee: 0,
       showCalculate: false,
-      showCalculated: false
+      showCalculated: false,
+      conversion: null,
+      conversionAmount: 0
     }
   },
   methods: {
@@ -94,9 +105,42 @@ export default {
       if (name == "calculate") {
         this.showCalculate = true;
       }
+      if (name == "fee") {
+        this.showFee = true;
+        this.conversionFeeCurrency = null;
+        this.conversionFee = 0;
+        this.showCalculate = true;
+      }
+    },
+    starting(currency) {
+      this.startingCurrency = currency;
+    },
+    amount(amount) {
+      this.startingAmount = amount;
+      if (this.showCalculated) {
+        this.calculate();
+      }
+    },
+    ending(currency) {
+      this.endingCurrency = currency;
+    },
+    feeCurrency(currency) {
+      this.conversionFeeCurrency = currency;
+      this.showCalculated = false;
+    },
+    fee(fee) {
+      this.conversionFee = fee;
+      if (this.showCalculated) {
+        this.calculate();
+      }
     },
     calculate() {
-      // TODO: add logic to get current currency values via oracles and calculate conversion
+      this.conversion = this.startingAmount + ' ' + this.startingCurrency + ' to ' + this.endingCurrency;
+      if (this.conversionFeeCurrency) {
+        this.conversion = this.conversion + ' with a ' + this.conversionFee + ' ' + this.conversionFeeCurrency + ' fee';
+      }
+      // TODO: add logic to get current currency values via oracles and calculate conversion correctly
+      this.conversionAmount = this.startingAmount - this.conversionFee;
       this.showCalculate = false;
       this.showCalculated = true;
     },
@@ -109,9 +153,9 @@ export default {
       this.reset();
     },
     reset() {
-      this.startingKey += 1;
-      this.endingKey += 1;
+      this.selectorKey += 1;
       this.showEnding = false;
+      this.showFee = false;
       this.showCalculate = false;
       this.showCalculated = false;
     }
@@ -126,6 +170,10 @@ export default {
 <style scoped>
 #calculator h3 {
   text-align: center;
+}
+.calculate-buttons {
+  display: flex;
+  justify-content: center;
 }
 .calculate-buttons button {
   height: 50px;
@@ -145,9 +193,14 @@ export default {
   height: 50px;
   border-radius: 50px;
   margin: 10px;
-}
-.calculated button:hover {
   color: rgb(255,255,255);
   background: rgb(0,0,0);
+}
+.calculated button:hover {
+  color: rgb(0,0,0);
+  background: rgb(255,255,255);
+}
+.calculated .background-animation:hover {
+  color: rgb(255,255,255);
 }
 </style>
