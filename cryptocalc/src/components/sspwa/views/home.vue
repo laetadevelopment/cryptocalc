@@ -1,7 +1,7 @@
 <template>
   <div v-if="showHome" id="home" class="page">
     <div class="page-title">
-      <h1 ref="title">CryptoCalc Currency Converter DApp</h1>
+      <h1 ref="title">Currency Converter DApp</h1>
     </div>
     <div class="page-content" ref="content">
       <h2>The mission of the CryptoCalc DApp is to create a decentralized, open source DApp that allows you to convert any currency (digital or fiat).</h2>
@@ -10,7 +10,7 @@
     </div>
     <div class="page-cta" ref="cta">
       <button class="background-animation" @click="view">View on GitHub</button>
-      <button class="background-animation" @click="load">Go Home</button>
+      <button class="background-animation" @click="load">Calculator</button>
     </div>
   </div>
 </template>
@@ -55,7 +55,7 @@ export default {
       window.open('https://github.com/laetadevelopment/cryptocalc','_blank');
     },
     load() {
-      this.$emit("load", "home");
+      this.$emit("load", "calculator");
     }
   },
   mounted() {

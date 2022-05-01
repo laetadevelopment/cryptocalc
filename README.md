@@ -1,5 +1,5 @@
 # CryptoCalc
- [CryptoCalc Currency Converter DApp](https://cryptocalc.app "CryptoCalc")
+ [Currency Converter DApp](https://cryptocalc.app "CryptoCalc")
 
 
 
@@ -39,17 +39,23 @@ Connect your MetaMask wallet or enter your starting amount and currency to get s
 
 #### v1.0 - Phase Zero
 
-##### v1.0.1 - create SSPWA scaffolding
+##### v1.0.1 - create SSPWA scaffolding for DApp
 
-##### v1.0.2 - create Truffle scaffolding
+##### v1.0.2 - create Truffle scaffolding for smart contracts (allows you to connect your wallet and pull currency values through oracles)
 
-##### v1.0.3 - create Go scaffolding
+##### v1.0.3 - create Go scaffolding for conversions microservice (allows you to save conversion chains and use them again)
 
 #### v1.1 - Phase One
 
-##### v1.1.1 - add content for SSPWA
+##### v1.1.1 - create logic and UI/UX to add currencies to currency selector dynamically
 
-##### v1.1.2 - add styling to content for SSPWA
+##### v1.1.2 - create logic and UI/UX to add another conversion to conversion chain
+
+##### v1.1.3 - create logic and UI/UX to save conversion chains via conversions microservice
+
+##### v1.1.4 - creaate logic and UI/UX to view and use saved conversion chains
+
+##### v1.1.5 - create logic and UI/UX to edit saved conversion chains
 
 #### v1.2 - Phase Two
 

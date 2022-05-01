@@ -73,6 +73,8 @@ header #logo img {
   min-width: 40px;
   max-width: 100%;
   min-height: 40px;
+  max-height: 100%;
+  object-fit: cover;
 }
 #appBarButton {
   width: 40px;
