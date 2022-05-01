@@ -2,9 +2,9 @@
   <div id="sspwa">
     <div id="viewable">
       <div v-if="showInstall" id="intro">
-        <h2 v-if="installApp">Install</h2>
+        <h2 v-if="installApp">Install DApp</h2>
         <img v-if="installApp" @click="install" id="logo" alt="CryptoCalc logo" src="../assets/cryptocalc-logo-intro.png">
-        <h2 v-if="!installApp">Load</h2>
+        <h2 v-if="!installApp">Load DApp</h2>
         <img v-if="!installApp" @click="load" id="logo" alt="CryptoCalc logo" src="../assets/cryptocalc-logo-intro.png">
       </div>
       <index v-if="loadIndex" />

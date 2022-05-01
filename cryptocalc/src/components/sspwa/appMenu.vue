@@ -1,6 +1,7 @@
 <template>
   <div id="appMenu">
     <button class="background-animation" @click="home">Home</button>
+    <button class="background-animation" @click="calculator">Calculator</button>
     <button class="background-animation" @click="view">View on GitHub</button>
   </div>
 </template>
@@ -12,6 +13,10 @@ export default {
     home() {
       this.$emit("toggle", "appMenu");
       this.$emit("load", "home");
+    },
+    calculator() {
+      this.$emit("toggle", "appMenu");
+      this.$emit("load", "calculator");
     },
     view() {
       this.$emit("toggle", "appMenu");
