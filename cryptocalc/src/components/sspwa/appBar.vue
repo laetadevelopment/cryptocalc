@@ -1,22 +1,19 @@
 <template>
   <div id="appBar">
-    <a class="github-button" href="https://github.com/laetadevelopment/cryptocalc/subscription" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch laetadevelopment/cryptocalc on GitHub">Watch</a>
-    <a class="github-button" href="https://github.com/laetadevelopment/cryptocalc" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star the SSPWA Template on GitHub">Star</a>
-    <a class="github-button" href="https://github.com/laetadevelopment/cryptocalc/archive/HEAD.zip" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-download" data-size="large" aria-label="Download laetadevelopment/cryptocalc on GitHub">Download</a>
+    <metamask />
   </div>
 </template>
 
 <script>
+import metamask from '../cryptocalc/metamask.vue'
+
 export default {
   name: 'appBar',
-  mounted() {
-    const plugin = document.createElement("script");
-    plugin.setAttribute(
-      "src",
-      "//buttons.github.io/buttons.js"
-    );
-    plugin.async = true;
-    document.head.appendChild(plugin);
+  components: {
+    metamask
+  },
+  beforeCreate () {
+    this.$store.dispatch('registerWeb3');
   }
 }
 </script>

@@ -3,6 +3,7 @@
     <h2>Currency Selector</h2>
     <div class="currency-buttons">
       <button @click="selectCurrency">USD</button>
+      <button @click="selectCurrency">ETH</button>
       <button @click="selectCurrency">AVAX</button>
       <button @click="selectCurrency">TIME</button>
       <button @click="selectCurrency">MEMO</button>

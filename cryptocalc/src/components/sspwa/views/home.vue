@@ -60,7 +60,9 @@ export default {
   },
   mounted() {
     this.overflow();
-    window.addEventListener("resize", this.overflow);
+    // this is throwing a console error on resize - Uncaught TypeError: Cannot read properties of null (reading 'scrollHeight') at 
+    // Proxy.overflow
+    //window.addEventListener("resize", this.overflow);
   }
 }
 </script>
