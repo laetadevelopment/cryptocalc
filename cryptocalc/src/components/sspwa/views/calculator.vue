@@ -67,7 +67,7 @@ export default {
   methods: {
     // TODO: refactor this method to be dynamic and enlarge font as well
     overflow() {
-      if (this.$refs.title.scrollHeight && this.$refs.clientHeight) {
+      if (this.$refs.title) {
         if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
           this.$refs.title.style.fontSize = "4vw";
           if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
@@ -80,9 +80,10 @@ export default {
             }
           }
         }
+      }
+      if (this.$refs.content) {
         if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
           this.$refs.content.style.fontSize = ".8em";
-          //console.log(this.$refs.content.getElementsByTagName("button"));
           if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
             this.$refs.content.style.fontSize = ".7em";
             if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
@@ -143,7 +144,6 @@ export default {
         this.conversion = this.conversion + ' with a ' + this.conversionFee + ' ' + this.conversionFeeCurrency + ' fee';
       }
       // TODO: add logic to get current currency values via oracles and calculate conversion correctly
-
       this.conversionAmount = this.startingAmount - this.conversionFee;
       this.showCalculate = false;
       this.showCalculated = true;
@@ -166,9 +166,7 @@ export default {
   },
   mounted() {
     this.overflow();
-    // this is throwing a console error on resize - Uncaught TypeError: Cannot read properties of null (reading 'scrollHeight') at 
-    // Proxy.overflow
-    //window.addEventListener("resize", this.overflow);
+    window.addEventListener("resize", this.overflow);
   }
 }
 </script>

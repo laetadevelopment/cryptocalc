@@ -26,26 +26,30 @@ export default {
   methods: {
     // TODO: refactor this method to be dynamic and enlarge font as well
     overflow() {
-      if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
-        this.$refs.title.style.fontSize = "4vw";
+      if (this.$refs.title) {
         if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
-          this.$refs.title.style.fontSize = "3vw";
+          this.$refs.title.style.fontSize = "4vw";
           if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
-            this.$refs.title.style.fontSize = "2vw";
+            this.$refs.title.style.fontSize = "3vw";
             if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
-              this.$refs.title.style.fontSize = "1vw";
+              this.$refs.title.style.fontSize = "2vw";
+              if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
+                this.$refs.title.style.fontSize = "1vw";
+              }
             }
           }
         }
       }
-      if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-        this.$refs.content.style.fontSize = ".8em";
+      if (this.$refs.content) {
         if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-          this.$refs.content.style.fontSize = ".7em";
+          this.$refs.content.style.fontSize = ".8em";
           if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-            this.$refs.content.style.fontSize = ".6em";
+            this.$refs.content.style.fontSize = ".7em";
             if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-              this.$refs.content.style.fontSize = ".5em";
+              this.$refs.content.style.fontSize = ".6em";
+              if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
+                this.$refs.content.style.fontSize = ".5em";
+              }
             }
           }
         }
@@ -60,9 +64,7 @@ export default {
   },
   mounted() {
     this.overflow();
-    // this is throwing a console error on resize - Uncaught TypeError: Cannot read properties of null (reading 'scrollHeight') at 
-    // Proxy.overflow
-    //window.addEventListener("resize", this.overflow);
+    window.addEventListener("resize", this.overflow);
   }
 }
 </script>
