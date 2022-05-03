@@ -10,7 +10,7 @@
     </div>
     <div id="appBarButton">
       <button class="background-animation" @click="toggleAppBar">
-        <img alt="Toggle App Bar" src="../../assets/github-mark.svg">
+        <img alt="Toggle App Bar" src="../../assets/metamask-fox.svg">
       </button>
     </div>
   </header>

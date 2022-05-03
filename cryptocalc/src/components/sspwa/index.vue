@@ -113,8 +113,9 @@ a:hover {
 }
 /* TODO: add icons to the navigation buttons */
 button {
+  height: 50px;
   width: 150px;
-  border-radius: 10px;
+  border-radius: 50px;
   border: 3px solid rgb(0,0,0);
   background: transparent;
   color: rgb(0,0,0);
@@ -243,7 +244,6 @@ input[type=number] {
 .page-cta button {
   max-width: 47.5%;
   max-height: 100%;
-  padding: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: center;

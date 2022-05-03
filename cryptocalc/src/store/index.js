@@ -1,38 +1,46 @@
 import { createStore } from 'vuex'
-import getWeb3 from '../utils/getWeb3'
+import metamask from '../utils/metamask'
 
 export default createStore({
   state: {
-    web3: {
-      isInjected: false,
-      web3Instance: null,
-      networkId: null,
-      wallet: null,
-      balance: null,
-      error: null
-    },
-    contractInstance: 'address'
+    metamask: {
+      installed: false,
+      connected: false,
+      address: null,
+      ethereum: null,
+      web3: null
+    }
   },
   getters: {
   },
   mutations: {
-    registerWeb3Instance (state, payload) {
+    updateMetamask (state, payload) {
       let result = payload;
-      let web3Copy = state.web3;
-      web3Copy.wallet = result.wallet;
-      web3Copy.networkId = result.networkId;
-      web3Copy.balance = parseInt(result.balance, 10);
-      web3Copy.isInjected = result.injectedWeb3;
-      web3Copy.web3Instance = result.web3;
-      state.web3 = web3Copy;
+      let metamaskCopy = state.metamask;
+      metamaskCopy.installed = result.installed;
+      metamaskCopy.connected = result.connected;
+      metamaskCopy.address = result.address;
+      metamaskCopy.ethereum = result.ethereum;
+      metamaskCopy.web3 = result.web3;
+      state.metamask = metamaskCopy;
+      console.log(state.metamask);
     }
   },
   actions: {
-    registerWeb3 ({commit}) {
-      getWeb3.then(result => {
-        commit('registerWeb3Instance', result);
+    setMetamask ({commit}) {
+      metamask.then(result => {
+        commit('updateMetamask', result);
+      }).catch(e => {xs
+        console.log('error updating MetaMask', e);
+      })
+    },
+    connectMetamask (context) {
+      context.state.metamask.ethereum.request({ method: 'eth_requestAccounts' }).then(result => {
+        context.state.metamask.connected = true;
+        context.state.metamask.address = result[0];
+        console.log(context.state.metamask);
       }).catch(e => {
-        console.log('error in registerWeb3 action', e);
+        console.log('error connecting MetaMask', e);
       })
     }
   },

@@ -1,9 +1,15 @@
 <template>
   <div id="metamask">
-    <p>Metamask: {{ web3.isInjected }}</p>
-    <p>Network: {{ web3.networkId }}</p>
-    <p>Account: {{ web3.wallet }}</p>
-    <p>Balance: {{ web3.balance }}</p>
+    <div v-if="!metamask.installed" class="metamask-install">
+      <button class="background-animation" @click="install"><img alt="Install MetaMask" src="../../assets/metamask-fox.svg">Install MetaMask to Connect Wallet</button>
+    </div>
+    <div v-if="!metamask.connected" class="metamask-installed">
+      <button class="background-animation" @click="login"><img alt="Login with MetaMask" src="../../assets/metamask-fox.svg">Connect MetaMask Wallet</button>
+    </div>
+    <div v-if="metamask.connected" class="metamask-connected">
+      <p>Address: {{ metamask.address }}</p>
+      <p>Network: {{ metamask.ethereum.networkVersion }}</p>
+    </div>
   </div>
 </template>
 
@@ -11,9 +17,20 @@
 export default {
   name: 'metamask',
   computed: {
-    web3() {
-      return this.$store.state.web3;
+    metamask() {
+      return this.$store.state.metamask;
     }
+  },
+  methods: {
+    install() {
+      console.log(this.metamask);
+    },
+    login() {
+      this.$store.dispatch('connectMetamask');
+    }
+  },
+  beforeCreate () {
+    this.$store.dispatch('setMetamask');
   }
 }
 </script>
@@ -21,8 +38,28 @@ export default {
 <style scoped>
 #metamask {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
+}
+#metamask div {
+  display: flex;
+  align-items: center;
+}
+#metamask button {
+  width: 250px;
+  height: 50px;
+  max-height: 100%;
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#metamask button img {
+  max-height: 90%;
+}
+.metamask-connected {
+  width: 100%;
+  justify-content: space-around;
 }
 #metamask p {
   display: inline-flex;

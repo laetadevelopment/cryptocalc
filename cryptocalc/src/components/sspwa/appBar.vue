@@ -11,9 +11,6 @@ export default {
   name: 'appBar',
   components: {
     metamask
-  },
-  beforeCreate () {
-    this.$store.dispatch('registerWeb3');
   }
 }
 </script>
