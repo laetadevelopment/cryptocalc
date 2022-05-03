@@ -1,10 +1,10 @@
 <template>
   <div id="metamask">
     <div v-if="!metamask.installed" class="metamask-install">
-      <button class="background-animation" @click="install"><img alt="Install MetaMask" src="../../assets/metamask-fox.svg">Install MetaMask to Connect Wallet</button>
+      <button class="background-animation" @click="install"><img alt="Install MetaMask" src="../../assets/metamask-fox.svg">Install MetaMask Wallet</button>
     </div>
-    <div v-if="!metamask.connected" class="metamask-installed">
-      <button class="background-animation" @click="login"><img alt="Login with MetaMask" src="../../assets/metamask-fox.svg">Connect MetaMask Wallet</button>
+    <div v-if="metamask.installed && !metamask.connected" class="metamask-installed">
+      <button class="background-animation" @click="connect"><img alt="Login with MetaMask" src="../../assets/metamask-fox.svg">Connect MetaMask Wallet</button>
     </div>
     <div v-if="metamask.connected" class="metamask-connected">
       <p>Address: {{ metamask.address }}</p>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import MetaMaskOnboarding from '@metamask/onboarding'
+
 export default {
   name: 'metamask',
   computed: {
@@ -23,13 +25,13 @@ export default {
   },
   methods: {
     install() {
-      console.log(this.metamask);
+      this.$store.dispatch('installMetamask');
     },
-    login() {
+    connect() {
       this.$store.dispatch('connectMetamask');
     }
   },
-  beforeCreate () {
+  mounted() {
     this.$store.dispatch('setMetamask');
   }
 }
@@ -45,6 +47,7 @@ export default {
 #metamask div {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 #metamask button {
   width: 250px;

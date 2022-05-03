@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import metamask from '../utils/metamask'
+import MetaMaskOnboarding from '@metamask/onboarding'
 
 export default createStore({
   state: {
@@ -23,22 +24,26 @@ export default createStore({
       metamaskCopy.ethereum = result.ethereum;
       metamaskCopy.web3 = result.web3;
       state.metamask = metamaskCopy;
-      console.log(state.metamask);
     }
   },
   actions: {
     setMetamask ({commit}) {
       metamask.then(result => {
         commit('updateMetamask', result);
-      }).catch(e => {xs
+      }).catch(e => {
         console.log('error updating MetaMask', e);
       })
+    },
+    installMetamask () {
+      console.log('install');
+      var forwarderOrigin = 'http://localhost:8080';
+      var onboarding = new MetaMaskOnboarding({ forwarderOrigin });
+      onboarding.startOnboarding();
     },
     connectMetamask (context) {
       context.state.metamask.ethereum.request({ method: 'eth_requestAccounts' }).then(result => {
         context.state.metamask.connected = true;
         context.state.metamask.address = result[0];
-        console.log(context.state.metamask);
       }).catch(e => {
         console.log('error connecting MetaMask', e);
       })

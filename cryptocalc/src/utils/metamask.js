@@ -4,6 +4,9 @@ let metamask = new Promise(function (resolve, reject) {
   var ethereum = window.ethereum;
   if (typeof ethereum !== 'undefined') {
     var web3 = new Web3(ethereum);
+    console.log(ethereum);
+    console.log(ethereum.isConnected());
+    console.log(ethereum.selectedAddress);
     resolve({
       installed: ethereum.isMetaMask,
       connected: ethereum.isConnected(),
