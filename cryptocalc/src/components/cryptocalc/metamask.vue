@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import MetaMaskOnboarding from '@metamask/onboarding'
-
 export default {
   name: 'metamask',
   computed: {
@@ -24,7 +22,8 @@ export default {
     }
   },
   methods: {
-    install() {
+    install(event) {
+      event.target.disabled = true;
       this.$store.dispatch('installMetamask');
     },
     connect() {

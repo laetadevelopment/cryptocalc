@@ -35,8 +35,7 @@ export default createStore({
       })
     },
     installMetamask () {
-      console.log('install');
-      var forwarderOrigin = 'http://localhost:8080';
+      var forwarderOrigin = 'https://cryptocalc.app';
       var onboarding = new MetaMaskOnboarding({ forwarderOrigin });
       onboarding.startOnboarding();
     },
