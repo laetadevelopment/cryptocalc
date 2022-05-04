@@ -36,7 +36,11 @@ contract Conversions is Ownable {
     return decimals;
   }
 
-  function currencyConversion(string memory _to, string memory _from) public returns (int) {
-    return getLatestPrice();
+  function currencyConversion(string memory _from, string memory _to) public returns (int) {
+    if (keccak256(abi.encodePacked(_from)) == keccak256(abi.encodePacked("ETH"))) {
+      return getLatestPrice();
+    } else if (keccak256(abi.encodePacked(_from)) == keccak256(abi.encodePacked("USD"))) {
+      return getLatestPrice();
+    }
   }
 }

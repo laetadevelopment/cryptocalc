@@ -153,7 +153,7 @@ export default {
         from: from,
         to: to
       });
-      return this.$store.state.contract.conversion * amount;
+      return (this.$store.state.contract.conversion * amount).toFixed(8);
     },
     add() {
       // TODO: add logic to add another conversion to conversion chain

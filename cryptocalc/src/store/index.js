@@ -56,10 +56,10 @@ export default createStore({
       Conversions.setProvider(context.state.metamask.web3.currentProvider);
       Conversions.deployed().then((instance) => instance.currencyConversion.call(payload.from, payload.to)).then((conversion) => {
         context.state.contract.conversion = (conversion.toNumber() / 100000000).toFixed(8);
+        if (payload.from == 'USD') {
+          context.state.contract.conversion = (1 / context.state.contract.conversion).toFixed(8);
+        }
       })
-      // Conversions.deployed().then((instance) => instance.getDecimals.call()).then((decimals) => {
-      //   context.state.contract.conversion = (context.state.contract.conversion / 100000000).toFixed(decimals.toNumber());
-      // })
     }
   },
   modules: {
