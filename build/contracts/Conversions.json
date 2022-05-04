@@ -36,7 +36,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -69,7 +70,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -82,7 +84,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLatestPrice\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"constructor\":{\"notice\":\"Network: Kovan Aggregator: ETH/USD Address: 0x9326BFA02ADD2366b30bacB125260Af641031331\"},\"getLatestPrice()\":{\"notice\":\"Returns the latest price\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Conversions.sol\":\"Conversions\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0xf2b6c9adb3552254df1445b73563cf014434ff5e78663e9b961b6c059506ceb5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c1f59e0c7334c22fb54288728fc32546bdc9c8133d6db0d60223e3c28f52120\",\"dweb:/ipfs/QmeuxawUVBhMWQJXaEhhnubCTc4Jwn5wYK8gbhq6NjrpfG\"]},\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0x24e0364e503a9bbde94c715d26573a76f14cd2a202d45f96f52134ab806b67b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e12cbaa7378fd9b62280e4e1d164bedcb4399ce238f5f98fc0eefb7e50577981\",\"dweb:/ipfs/QmXRoFGUgfsaRkoPT5bxNMtSayKTQ8GZATLPXf69HcRA51\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"project:/contracts/Conversions.sol\":{\"keccak256\":\"0xbb1c18831c2d969dc8f8d2e28956ac1ce45952f79e515e9fabe15b90a39064c6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e92d63f0caa32f0487571e311d2adb66fd6c9d3780d288bcc89fa65889f245d\",\"dweb:/ipfs/QmQ8rBdnT4Qcxvcv6miL7VtdxjkoCKDrKyDQv547ffddjM\"]}},\"version\":1}",
@@ -4776,9 +4779,17 @@
     "name": "solc",
     "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "42": {
+      "events": {},
+      "links": {},
+      "address": "0xB7f1CCcb1E5512aa106617bAa5c41B2909239d66",
+      "transactionHash": "0x19b116986ea4b4c75cb86fe94a16a3376f9902b4552a16b6b7a00783a95e701c"
+    }
+  },
   "schemaVersion": "3.4.6",
-  "updatedAt": "2022-05-04T15:44:27.545Z",
+  "updatedAt": "2022-05-04T16:28:25.273Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {

@@ -1,12 +1,16 @@
 import Web3 from 'web3'
+import contract from '@truffle/contract'
+import artifacts from '../../../build/contracts/Conversions.json'
+const Conversions = contract(artifacts)
 
 let metamask = new Promise(function (resolve, reject) {
   var ethereum = window.ethereum;
   if (typeof ethereum !== 'undefined') {
     var web3 = new Web3(ethereum);
-    console.log(ethereum);
-    console.log(ethereum.isConnected());
-    console.log(ethereum.selectedAddress);
+    Conversions.setProvider(web3.currentProvider);
+    Conversions.deployed().then((instance) => instance.getLatestPrice.call()).then((r) => {
+      console.log(r.toNumber())
+    });
     resolve({
       installed: ethereum.isMetaMask,
       connected: ethereum.isConnected(),
