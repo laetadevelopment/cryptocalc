@@ -143,10 +143,13 @@ export default {
       if (this.conversionFeeCurrency) {
         this.conversion = this.conversion + ' with a ' + this.conversionFee + ' ' + this.conversionFeeCurrency + ' fee';
       }
-      // TODO: add logic to get current currency values via oracles and calculate conversion correctly
-      this.conversionAmount = this.startingAmount - this.conversionFee;
+      this.conversionAmount = this.calculateConversion(this.startingAmount, this.startingCurrency, this.endingCurrency);
       this.showCalculate = false;
       this.showCalculated = true;
+    },
+    calculateConversion(amount, from, to) {
+      this.$store.dispatch('currencyConversion');
+      return this.$store.state.contract.price * amount;
     },
     add() {
       // TODO: add logic to add another conversion to conversion chain

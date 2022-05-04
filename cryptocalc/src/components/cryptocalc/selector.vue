@@ -1,7 +1,7 @@
 <template>
   <div id="selector">
     <button v-if="!currencySelected" @click="open">Currency Selector</button>
-    <button v-if="currencySelected" @click="open" ref="currency">{{currency}}</button>
+    <button v-if="currencySelected" @click="open" ref="currency">{{ currency }}</button>
     <input v-if="showCurrencyAmount" type="number" placeholder="Amount" @change="setAmount" />
     <input v-if="showConversionFee" type="number" placeholder="Fee" @change="setFee" />
     <currencySelector v-if="showCurrencySelector" @close="close" @select="select" />

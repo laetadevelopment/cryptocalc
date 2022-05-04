@@ -4,9 +4,6 @@
     <div class="currency-buttons">
       <button @click="selectCurrency">USD</button>
       <button @click="selectCurrency">ETH</button>
-      <button @click="selectCurrency">AVAX</button>
-      <button @click="selectCurrency">TIME</button>
-      <button @click="selectCurrency">MEMO</button>
     </div>
     <button class="background-animation" @click="close">Close</button>
   </div>
