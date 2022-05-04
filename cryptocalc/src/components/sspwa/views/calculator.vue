@@ -153,7 +153,6 @@ export default {
         from: from,
         to: to
       });
-      console.log(this.$store.state.contract.conversion);
       return this.$store.state.contract.conversion * amount;
     },
     add() {
