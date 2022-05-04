@@ -55,11 +55,9 @@ export default createStore({
     currencyConversion (context) {
       Conversions.setProvider(web3.currentProvider);
       Conversions.deployed().then((instance) => instance.getLatestPrice.call()).then((price) => {
-        console.log(price.toNumber());
         context.state.contract.price = price.toNumber();
       })
       Conversions.deployed().then((instance) => instance.getDecimals.call()).then((decimals) => {
-        console.log((context.state.contract.price / 100000000).toFixed(decimals.toNumber()));
         context.state.contract.price = (context.state.contract.price / 100000000).toFixed(decimals.toNumber());
       })
     }
