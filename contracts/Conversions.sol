@@ -36,27 +36,7 @@ contract Conversions is Ownable {
     return decimals;
   }
 
-  // function _getDecimals() internal returns (uint8) {
-  //   uint8 decimals = priceFeed.decimals();
-  //   return decimals;
-  // }
-
-  // function _getConversionValue(string _currencyFrom, string _currencyTo) internal returns (uint) {
-  //   // TODO: get value of correct currency
-  //   uint value = getLatestPrice();
-  //   return value;
-  // }
-
-  // function convert(uint _amountFrom, string _currencyFrom, string _currencyTo) internal returns (uint) {
-  //   uint conversionValue = _getConversionValue(_currencyFrom, _currencyTo);
-  //   uint convertAmount = conversionValue * _amountFrom;
-  //   return convertAmount;
-  // }
-
-  // function createConversion(uint _startingAmount, string _startingCurrency, string _endingCurrency, uint _conversionFee, string _conversionFeeCurrency) public returns (uint) {
-  //   uint conversionAmount = convert(_startingAmount, _startingCurrency, _endingCurrency);
-  //   uint feeAmount = convert(_endingCurrency, _conversionFee, _conversionFeeCurrency);
-  //   uint conversion = conversionAmount - feeAmount;
-  //   return conversion;
-  // }
+  function currencyConversion(string memory _to, string memory _from) public returns (int) {
+    return getLatestPrice();
+  }
 }

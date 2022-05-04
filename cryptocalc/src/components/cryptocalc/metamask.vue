@@ -3,11 +3,11 @@
     <div v-if="!metamask.installed" class="metamask-install">
       <button class="background-animation" @click="install"><img alt="Install MetaMask" src="../../assets/metamask-fox.svg">Install MetaMask Wallet</button>
     </div>
-    <div v-if="metamask.installed && !metamask.connected" class="metamask-installed">
+    <div v-if="metamask.installed && !metamask.address" class="metamask-installed">
       <button class="background-animation" @click="connect"><img alt="Login with MetaMask" src="../../assets/metamask-fox.svg">Connect MetaMask Wallet</button>
     </div>
-    <div v-if="metamask.connected" class="metamask-connected">
-      <p>Address: {{ metamask.address }}</p>
+    <div v-if="metamask.address" class="metamask-connected">
+      <p>Address: {{ metamask.address.substring(0, 5) }}...{{ metamask.address.slice(-4) }}</p>
       <p>Network: {{ metamask.ethereum.networkVersion }}</p>
     </div>
   </div>

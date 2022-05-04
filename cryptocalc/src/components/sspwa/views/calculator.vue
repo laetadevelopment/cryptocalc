@@ -148,8 +148,13 @@ export default {
       this.showCalculated = true;
     },
     calculateConversion(amount, from, to) {
-      this.$store.dispatch('currencyConversion');
-      return this.$store.state.contract.price * amount;
+      this.$store.dispatch({
+        type: 'currencyConversion',
+        from: from,
+        to: to
+      });
+      console.log(this.$store.state.contract.conversion);
+      return this.$store.state.contract.conversion * amount;
     },
     add() {
       // TODO: add logic to add another conversion to conversion chain
