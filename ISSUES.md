@@ -8,3 +8,5 @@
 ### logo is stretching in iOS
 ### need to add PWA splash screens for iOS
 ### keyboard from number inputs pushes up elements on screen on Galaxy S20 in App
+### calculator buttons need to be resized with overflow corrections on font size
+### overflow corrections throw console error when kicked off with window resize event

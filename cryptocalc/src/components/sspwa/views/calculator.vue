@@ -6,18 +6,22 @@
     <div v-if="showStarting" class="page-content" ref="content">
       <div class="conversion-starting">
         <h3>What currency would you like to start with?</h3>
-        <selector :key="startingKey" name="starting" @show="show" />
+        <selector :key="selectorKey" name="starting" @show="show" @currency="starting" @amount="amount" />
       </div>
       <div v-if="showEnding" class="conversion-ending">
         <h3>What currency would you like to convert to?</h3>
-        <selector :key="endingKey" name="ending" @show="show" />
+        <selector :key="selectorKey" name="ending" @show="show" @currency="ending" />
+      </div>
+      <div v-if="showFee" class="conversion-fee">
+        <h3>Is there a conversion fee? (optional)</h3>
+        <selector :key="selectorKey" name="fee" @show="show" @currency="feeCurrency" @fee="fee" />
       </div>
       <div v-if="showCalculate" class="calculate-buttons">
         <button @click="add">Add Conversion</button>
         <button class="background-animation" @click="calculate">Calculate</button>
       </div>
       <div v-if="showCalculated" class="calculated">
-        <h3>You will end up with...</h3>
+        <h3>{{ conversion }} is {{ conversionAmount }} {{ endingCurrency }}</h3>
         <div class="calculated-buttons">
           <button class="background-animation" @click="save">Save Conversion</button>
           <button @click="reset">New Conversion</button>
@@ -46,36 +50,47 @@ export default {
     return {
       showCalculator: true,
       showStarting: true,
-      startingKey: 0,
+      selectorKey: 0,
+      startingCurrency: null,
+      startingAmount: 0,
       showEnding: false,
-      endingKey: 0,
+      endingCurrency: null,
+      showFee: false,
+      conversionFeeCurrency: null,
+      conversionFee: 0,
       showCalculate: false,
-      showCalculated: false
+      showCalculated: false,
+      conversion: null,
+      conversionAmount: 0
     }
   },
   methods: {
     // TODO: refactor this method to be dynamic and enlarge font as well
     overflow() {
-      if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
-        this.$refs.title.style.fontSize = "4vw";
+      if (this.$refs.title) {
         if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
-          this.$refs.title.style.fontSize = "3vw";
+          this.$refs.title.style.fontSize = "4vw";
           if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
-            this.$refs.title.style.fontSize = "2vw";
+            this.$refs.title.style.fontSize = "3vw";
             if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
-              this.$refs.title.style.fontSize = "1vw";
+              this.$refs.title.style.fontSize = "2vw";
+              if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
+                this.$refs.title.style.fontSize = "1vw";
+              }
             }
           }
         }
       }
-      if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-        this.$refs.content.style.fontSize = ".8em";
+      if (this.$refs.content) {
         if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-          this.$refs.content.style.fontSize = ".7em";
+          this.$refs.content.style.fontSize = ".8em";
           if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-            this.$refs.content.style.fontSize = ".6em";
+            this.$refs.content.style.fontSize = ".7em";
             if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-              this.$refs.content.style.fontSize = ".5em";
+              this.$refs.content.style.fontSize = ".6em";
+              if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
+                this.$refs.content.style.fontSize = ".5em";
+              }
             }
           }
         }
@@ -94,11 +109,50 @@ export default {
       if (name == "calculate") {
         this.showCalculate = true;
       }
+      if (name == "fee") {
+        this.showFee = true;
+        this.conversionFeeCurrency = null;
+        this.conversionFee = 0;
+        this.showCalculate = true;
+      }
+    },
+    starting(currency) {
+      this.startingCurrency = currency;
+    },
+    amount(amount) {
+      this.startingAmount = amount;
+      if (this.showCalculated) {
+        this.calculate();
+      }
+    },
+    ending(currency) {
+      this.endingCurrency = currency;
+    },
+    feeCurrency(currency) {
+      this.conversionFeeCurrency = currency;
+      this.showCalculated = false;
+    },
+    fee(fee) {
+      this.conversionFee = fee;
+      if (this.showCalculated) {
+        this.calculate();
+      }
     },
     calculate() {
-      // TODO: add logic to get current currency values via oracles and calculate conversion
+      this.conversion = this.startingAmount + ' ' + this.startingCurrency + ' to ' + this.endingCurrency;
+      if (this.conversionFeeCurrency) {
+        this.conversion = this.conversion + ' with a ' + this.conversionFee + ' ' + this.conversionFeeCurrency + ' fee';
+      }
+      this.conversionAmount = this.calculateConversion(this.startingAmount, this.startingCurrency, this.endingCurrency);
       this.showCalculate = false;
       this.showCalculated = true;
+    },
+    calculateConversion(amount, from, to) {
+      this.$store.dispatch({
+        type: 'currencyConversion',
+        from: from
+      });
+      return (this.$store.state.contract.conversion * amount);
     },
     add() {
       // TODO: add logic to add another conversion to conversion chain
@@ -109,9 +163,9 @@ export default {
       this.reset();
     },
     reset() {
-      this.startingKey += 1;
-      this.endingKey += 1;
+      this.selectorKey += 1;
       this.showEnding = false;
+      this.showFee = false;
       this.showCalculate = false;
       this.showCalculated = false;
     }
@@ -126,6 +180,10 @@ export default {
 <style scoped>
 #calculator h3 {
   text-align: center;
+}
+.calculate-buttons {
+  display: flex;
+  justify-content: center;
 }
 .calculate-buttons button {
   height: 50px;
@@ -145,9 +203,14 @@ export default {
   height: 50px;
   border-radius: 50px;
   margin: 10px;
-}
-.calculated button:hover {
   color: rgb(255,255,255);
   background: rgb(0,0,0);
+}
+.calculated button:hover {
+  color: rgb(0,0,0);
+  background: rgb(255,255,255);
+}
+.calculated .background-animation:hover {
+  color: rgb(255,255,255);
 }
 </style>
