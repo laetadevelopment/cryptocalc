@@ -49,7 +49,7 @@ export default {
       if (this.name == "ending") {
         this.currency = currency;
         this.currencySelected = true;
-        this.$emit("show", "fee");
+        this.$emit("show", "calculate");
         this.$emit("currency", this.currency);
       }
       if (this.name == "fee") {
