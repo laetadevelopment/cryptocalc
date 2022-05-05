@@ -150,10 +150,9 @@ export default {
     calculateConversion(amount, from, to) {
       this.$store.dispatch({
         type: 'currencyConversion',
-        from: from,
-        to: to
+        from: from
       });
-      return (this.$store.state.contract.conversion * amount).toFixed(8);
+      return (this.$store.state.contract.conversion * amount);
     },
     add() {
       // TODO: add logic to add another conversion to conversion chain
