@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import metamask from '../utils/metamask'
 import MetaMaskOnboarding from '@metamask/onboarding'
 import contract from '@truffle/contract'
-import artifacts from '../../../build/contracts/Conversions.json'
+import artifacts from '../../build/contracts/Conversions.json'
 const Conversions = contract(artifacts)
 
 export default createStore({
