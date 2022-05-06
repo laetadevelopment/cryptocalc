@@ -8,7 +8,7 @@
     </div>
     <div v-if="metamask.address" class="metamask-connected">
       <p>Address: {{ metamask.address.substring(0, 5) }}...{{ metamask.address.slice(-4) }}</p>
-      <p>Network: {{ metamask.ethereum.networkVersion }}</p>
+      <p>Network: {{ metamask.network }}</p>
     </div>
   </div>
 </template>
