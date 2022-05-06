@@ -5,129 +5,123 @@ import "google/protobuf/timestamp.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
-option go_package = "./";
 option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
-  info: {
-    title: "Conversions Service";
-    version: "1.0";
-    contact: {
-      name: "Mike Laeta";
-      url: "https://cryptocalc.app";
-      email: "mike@laetadevelopment.com";
+    info: {
+        title: "Conversions Service";
+        version: "1.0";
+        contact: {
+            name: "Mike Laeta";
+            url: "https://cryptocalc-dapp.firebaseapp.com";
+            email: "mike@laetadevelopment.com";
+        };
     };
-  };
-  schemes: HTTP;
-  consumes: "application/json";
-  produces: "application/json";
-  responses: {
-    key: "404";
-    value: {
-      description: "Returned when the resource does not exist.";
-      schema: {
-        json_schema: {
-          type: STRING;
+    schemes: HTTP;
+    consumes: "application/json";
+    produces: "application/json";
+    responses: {
+        key: "404";
+        value: {
+            description: "Returned when the resource does not exist.";
+            schema: {
+                json_schema: {
+                    type: STRING;
+                }
+            }
         }
-      }
     }
-  }
 };
 
 message Conversion {
-  string id = 1;
-  string address = 2;
-  int64 amount = 3;
-  string from = 4;
-  string to = 5;
-  int64 value = 6;
-  int64 total = 7;
-  google.protobuf.Timestamp created = 8;
-  google.protobuf.Timestamp updated = 9;
+    string id = 1;
+    string items = 2;
+    google.protobuf.Timestamp created = 3;
+    google.protobuf.Timestamp updated = 4;
 }
 
 message CreateRequest{
-  string api = 1;
-  Conversion conversion = 2;
+    string api = 1;
+    Conversion conversion = 2;
 }
 
 message CreateResponse{
-  string api = 1;
-  string id = 2;
+    string api = 1;
+    string id = 2;
 }
 
 message ReadRequest{
-  string api = 1;
-  string id = 2;
+    string api = 1;
+    string id = 2;
 }
 
 message ReadResponse{
-  string api = 1;
-  Conversion conversion = 2;
+    string api = 1;
+    Conversion conversion = 2;
 }
 
 message UpdateRequest{
-  string api = 1;
-  Conversion conversion = 2;
+    string api = 1;
+    Conversion conversion = 2;
 }
 
 message UpdateResponse{
-  string api = 1;
-  int64 updated = 2;
+    string api = 1;
+    int64 updated = 2;
 }
 
 message DeleteRequest{
-  string api = 1;
-  string id = 2;
+    string api = 1;
+    string id = 2;
 }
 
 message DeleteResponse{
-  string api = 1;
-  int64 deleted = 2;
+    string api = 1;
+    int64 deleted = 2;
 }
 
 message ListRequest{
-  string api = 1;
+    string api = 1;
 }
 
 message ListResponse{
-  string api = 1;
-  repeated Conversion data = 2;
+    string api = 1;
+    repeated Conversion data = 2;
 }
 
 service ConversionService {
-  rpc List(ListRequest) returns (ListResponse){
-    option (google.api.http) = {
-      get: "/v1/conversions/all"
-    };
-  }
+    rpc List(ListRequest) returns (ListResponse){
+        option (google.api.http) = {
+            get: "/v1/conversions/all"
+        };
+    }
 
-  rpc Create(CreateRequest) returns (CreateResponse){
-    option (google.api.http) = {
-      post: "/v1/conversions"
-      body: "*"
-    };
-  }
+    rpc Create(CreateRequest) returns (CreateResponse){
+        option (google.api.http) = {
+            post: "/v1/conversions"
+            body: "*"
+        };
+    }
 
-  rpc Read(ReadRequest) returns (ReadResponse){
-    option (google.api.http) = {
-      get: "/v1/conversions/{id}"
-    };
-  }
+    rpc Read(ReadRequest) returns (ReadResponse){
+        option (google.api.http) = {
+            get: "/v1/conversions/{id}"
+        };
+    }
 
-  rpc Update(UpdateRequest) returns (UpdateResponse){
-    option (google.api.http) = {
-      put: "/v1/conversions/{conversion.id}"
-      body: "*"
+    rpc Update(UpdateRequest) returns (UpdateResponse){
+        option (google.api.http) = {
+            put: "/v1/conversions/{conversion.id}"
+            body: "*"
 
-      additional_bindings {
-        patch: "/v1/conversions/{conversion.id}"
-        body: "*"
-      }
-    };
-  }
+            additional_bindings {
+                patch: "/v1/conversions/{conversion.id}"
+                body: "*"
+            }
+        };
+    }
 
-  rpc Delete(DeleteRequest) returns (DeleteResponse){
-    option (google.api.http) = {
-      delete: "/v1/conversions/{id}"
-    };
-  }
+    rpc Delete(DeleteRequest) returns (DeleteResponse){
+        option (google.api.http) = {
+            delete: "/v1/conversions/{id}"
+        };
+    }
 }

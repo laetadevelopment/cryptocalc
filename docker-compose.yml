@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  cryptocalc:
+    build:
+      context: cryptocalc
+    ports:
+      - 80:8080
+  conversions:
+    build:
+        context: microservices/conversions
+    ports:
+        - 8080:8080
+    command:
+        -grpc-port=9090
+        -http-port=8080
+        -db-host=mongodb://172.25.0.1:27017
+        -log-level=-1
+        -log-time-format=2006-01-02T15:04:05.999999999Z07:00
+  mongodb:
+    image: mongo
+    ports:
+        - 27017:27017
+    volumes:
+        - mongodb:/data/db
+volumes:
+    mongodb:
