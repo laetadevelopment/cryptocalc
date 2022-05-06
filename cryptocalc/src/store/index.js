@@ -54,6 +54,13 @@ export default createStore({
         console.log('error connecting MetaMask', e);
       })
     },
+    switchNetwork (context) {
+      context.state.metamask.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x2A' }] }).then(result => {
+        context.state.metamask.network = 42;
+      }).catch(e => {
+        console.log('error changing network', e);
+      })
+    },
     currencyConversion (context, payload) {
       Conversions.setProvider(context.state.metamask.web3.currentProvider);
       Conversions.deployed().then((instance) => instance.currencyConversion.call(payload.from)).then((conversion) => {
