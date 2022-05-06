@@ -180,6 +180,7 @@ export default {
     },
     starting(currency) {
       this.startingCurrency = currency;
+      this.showCalculated = false;
     },
     amount(amount) {
       this.startingAmount = amount;
@@ -189,6 +190,7 @@ export default {
     },
     ending(currency) {
       this.endingCurrency = currency;
+      this.showCalculated = false;
     },
     feeCurrency(currency) {
       this.conversionFeeCurrency = currency;
