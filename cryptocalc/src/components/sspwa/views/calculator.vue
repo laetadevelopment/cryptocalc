@@ -75,7 +75,6 @@ export default {
   methods: {
     // TODO: refactor this method to be dynamic and enlarge font as well
     overflow() {
-      console.log("check overflow");
       var buttons = this.$refs.content.getElementsByTagName("button");
       var inputs = this.$refs.content.getElementsByTagName("input");
       if (this.$refs.title) {
@@ -93,7 +92,6 @@ export default {
         }
       }
       if (this.$refs.content) {
-        console.log(this.$refs.content.scrollHeight, this.$refs.content.clientHeight);
         if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
           this.$refs.content.style.fontSize = ".8em";
           for (var i = 0; i < buttons.length; i++) {
