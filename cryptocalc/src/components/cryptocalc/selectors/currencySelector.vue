@@ -30,10 +30,10 @@ export default {
   height: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   position: absolute;
-  top: 15%;
+  top: 12.5%;
   background: rgba(0,0,0,99%);
   border-top: 2px solid rgb(0,0,0);
   box-sizing: border-box;
@@ -49,7 +49,7 @@ export default {
   justify-content: center;
 }
 .currency-buttons button {
-  margin: 10px;
+  margin: 5px;
   color: rgb(255,255,255);
   border-color: rgb(255,255,255);
 }
@@ -58,8 +58,8 @@ export default {
   background: rgb(255,255,255);
 }
 #currencySelector button {
-  height: 50px;
-  border-radius: 50px;
+  height: 45px;
+  border-radius: 45px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
