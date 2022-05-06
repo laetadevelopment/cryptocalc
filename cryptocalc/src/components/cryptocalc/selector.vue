@@ -78,18 +78,18 @@ export default {
   justify-content: center;
 }
 #selector button {
-  height: 50px;
-  border-radius: 50px;
-  margin: 10px;
+  height: 45px;
+  border-radius: 45px;
+  margin: 5px;
 }
 #selector button:hover {
   color: rgb(255,255,255);
   background: rgb(0,0,0);
 }
 #selector input {
-  height: 50px;
-  border-radius: 50px;
-  margin: 10px;
+  height: 45px;
+  border-radius: 45px;
+  margin: 5px;
   text-align: center;
 }
 </style>

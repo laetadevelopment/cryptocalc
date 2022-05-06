@@ -4,23 +4,23 @@
       <h1 ref="title">Currency Conversion Calculator</h1>
     </div>
     <div v-if="showStarting" class="page-content" ref="content">
-      <div class="conversion-starting">
+      <div class="conversion-starting" @change="overflow">
         <h3>What currency would you like to start with?</h3>
         <selector :key="selectorKey" name="starting" @show="show" @currency="starting" @amount="amount" />
       </div>
-      <div v-if="showEnding" class="conversion-ending">
+      <div v-if="showEnding" class="conversion-ending" @change="overflow">
         <h3>What currency would you like to convert to?</h3>
         <selector :key="selectorKey" name="ending" @show="show" @currency="ending" />
       </div>
-      <div v-if="showFee" class="conversion-fee">
+      <div v-if="showFee" class="conversion-fee" @change="overflow">
         <h3>Is there a conversion fee? (optional)</h3>
         <selector :key="selectorKey" name="fee" @show="show" @currency="feeCurrency" @fee="fee" />
       </div>
-      <div v-if="showCalculate" class="calculate-buttons">
+      <div v-if="showCalculate" class="calculate-buttons" @change="overflow">
         <button @click="add" disabled>Add Conversion</button>
         <button class="background-animation" @click="calculate">Calculate</button>
       </div>
-      <div v-if="showCalculated" class="calculated">
+      <div v-if="showCalculated" class="calculated" @change="overflow">
         <h3>{{ conversion }} is {{ conversionAmount }} {{ endingCurrency }}</h3>
         <div class="calculated-buttons">
           <button class="background-animation" @click="save" disabled>Save Conversion</button>
@@ -67,6 +67,7 @@ export default {
   methods: {
     // TODO: refactor this method to be dynamic and enlarge font as well
     overflow() {
+      console.log("check overflow");
       if (this.$refs.title) {
         if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
           this.$refs.title.style.fontSize = "4vw";
@@ -82,14 +83,65 @@ export default {
         }
       }
       if (this.$refs.content) {
+        console.log(this.$refs.content.scrollHeight, this.$refs.content.clientHeight);
         if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
+          var buttons = this.$refs.content.getElementsByTagName("button");
+          var inputs = this.$refs.content.getElementsByTagName("input");
           this.$refs.content.style.fontSize = ".8em";
+          for (var i = 0; i < buttons.length; i++) {
+            if (buttons[i]) {
+              buttons[i].style.height = "40px";
+              buttons[i].style.borderRadius = "40px";
+            }
+          }
+          for (var i = 0; i < buttons.length; i++) {
+            if (inputs[i]) {
+              inputs[i].style.height = "40px";
+              inputs[i].style.borderRadius = "40px";
+            }
+          }
           if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
             this.$refs.content.style.fontSize = ".7em";
+            for (var i = 0; i < buttons.length; i++) {
+              if (buttons[i]) {
+                buttons[i].style.height = "35px";
+                buttons[i].style.borderRadius = "35px";
+              }
+            }
+            for (var i = 0; i < buttons.length; i++) {
+              if (inputs[i]) {
+                inputs[i].style.height = "35px";
+                inputs[i].style.borderRadius = "35px";
+              }
+            }
             if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
               this.$refs.content.style.fontSize = ".6em";
+              for (var i = 0; i < buttons.length; i++) {
+                if (buttons[i]) {
+                  buttons[i].style.height = "30px";
+                  buttons[i].style.borderRadius = "30px";
+                }
+              }
+              for (var i = 0; i < buttons.length; i++) {
+                if (inputs[i]) {
+                  inputs[i].style.height = "30px";
+                  inputs[i].style.borderRadius = "30px";
+                }
+              }
               if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
                 this.$refs.content.style.fontSize = ".5em";
+                for (var i = 0; i < buttons.length; i++) {
+                  if (buttons[i]) {
+                    buttons[i].style.height = "25px";
+                    buttons[i].style.borderRadius = "25px";
+                  }
+                }
+                for (var i = 0; i < buttons.length; i++) {
+                  if (inputs[i]) {
+                    inputs[i].style.height = "25px";
+                    inputs[i].style.borderRadius = "25px";
+                  }
+                }
               }
             }
           }
@@ -105,15 +157,18 @@ export default {
     show(name) {
       if (name == "ending") {
         this.showEnding = true;
+        this.overflow();
       }
       if (name == "calculate") {
         this.showCalculate = true;
+        this.overflow();
       }
       if (name == "fee") {
         this.showFee = true;
         this.conversionFeeCurrency = null;
         this.conversionFee = 0;
         this.showCalculate = true;
+        this.overflow();
       }
     },
     starting(currency) {
@@ -131,6 +186,7 @@ export default {
     feeCurrency(currency) {
       this.conversionFeeCurrency = currency;
       this.showCalculated = false;
+      this.overflow();
     },
     fee(fee) {
       this.conversionFee = fee;
@@ -146,6 +202,7 @@ export default {
       this.conversionAmount = this.calculateConversion(this.startingAmount, this.startingCurrency, this.endingCurrency);
       this.showCalculate = false;
       this.showCalculated = true;
+      this.overflow();
     },
     calculateConversion(amount, from, to) {
       this.$store.dispatch({
@@ -186,9 +243,9 @@ export default {
   justify-content: center;
 }
 .calculate-buttons button {
-  height: 50px;
-  border-radius: 50px;
-  margin: 10px;
+  height: 45px;
+  border-radius: 45px;
+  margin: 5px;
   color: rgb(255,255,255);
   background: rgb(0,0,0);
 }
@@ -200,9 +257,9 @@ export default {
   color: rgb(255,255,255);
 }
 .calculated button {
-  height: 50px;
-  border-radius: 50px;
-  margin: 10px;
+  height: 45px;
+  border-radius: 45px;
+  margin: 5px;
   color: rgb(255,255,255);
   background: rgb(0,0,0);
 }
