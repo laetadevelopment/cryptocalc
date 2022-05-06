@@ -17,13 +17,13 @@
         <selector :key="selectorKey" name="fee" @show="show" @currency="feeCurrency" @fee="fee" />
       </div>
       <div v-if="showCalculate" class="calculate-buttons">
-        <button @click="add">Add Conversion</button>
+        <button @click="add" disabled>Add Conversion</button>
         <button class="background-animation" @click="calculate">Calculate</button>
       </div>
       <div v-if="showCalculated" class="calculated">
         <h3>{{ conversion }} is {{ conversionAmount }} {{ endingCurrency }}</h3>
         <div class="calculated-buttons">
-          <button class="background-animation" @click="save">Save Conversion</button>
+          <button class="background-animation" @click="save" disabled>Save Conversion</button>
           <button @click="reset">New Conversion</button>
         </div>
       </div>
