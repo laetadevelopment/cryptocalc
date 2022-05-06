@@ -49,7 +49,7 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 ##### v1.1.1 - ~~refactor UI/UX in calculator view so it looks good on all devices~~
 
-##### v1.1.2 - refactor logic for vuex state so wallet and contract interaction flows correctly
+##### v1.1.2 - ~~refactor logic for vuex state so wallet and contract interaction flows correctly~~
 
 ##### v1.1.3 - create logic and UI/UX to install and connect MetaMask wallet to Kovan testnet before being able to calculate conversion
 
