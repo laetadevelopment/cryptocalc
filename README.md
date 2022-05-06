@@ -47,27 +47,27 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 #### v1.1 - Phase One
 
-##### v1.1.1 - refactor UI/UX in calculator view so it looks good on all devices
+##### v1.1.1 - ~~refactor UI/UX in calculator view so it looks good on all devices~~
 
 ##### v1.1.2 - refactor logic for vuex state so wallet and contract interaction flows correctly
 
-##### v1.1.3 - create logic and UI/UX to connect MetaMask wallet on Kovan before being able to calculate conversion
+##### v1.1.3 - create logic and UI/UX to install and connect MetaMask wallet to Kovan testnet before being able to calculate conversion
 
-#### v1.2 - Phase Two
+#### v1.3 - Phase Two
 
-##### v1.2.1 - create CI/CD pipeline for project
+##### v1.2.1 - add ability to deploy to mainnet in Truffle scaffolding
 
-##### v1.2.2 - create test cases for project
+##### v1.2.2 - switch from Kovan testnet feed to mainnet feed in conversions smart contract
 
-##### v1.2.3 - create documentation for project
+##### v1.2.3 - deploy to mainnet and connect SSPWA to new contract
 
 #### v1.3 - Phase Three
 
-##### v1.3.1 - add ability to deploy to mainnet in Truffle scaffolding
+##### v1.3.1 - create CI/CD pipeline for project
 
-##### v1.3.2 - switch from Kovan testnet feed to mainnet feed in conversions smart contract
+##### v1.3.2 - create test cases for project
 
-##### v1.3.3 - deploy to mainnet and connect SSPWA to new contract
+##### v1.3.3 - create documentation for project
 
 #### v1.4 - Phase Four
 
