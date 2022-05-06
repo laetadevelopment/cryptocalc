@@ -64,10 +64,20 @@ export default {
       conversionAmount: 0
     }
   },
+  watch: {
+    $data: {
+      handler: function() {
+        this.overflow();
+      },
+      deep: true
+    }
+  },
   methods: {
     // TODO: refactor this method to be dynamic and enlarge font as well
     overflow() {
       console.log("check overflow");
+      var buttons = this.$refs.content.getElementsByTagName("button");
+      var inputs = this.$refs.content.getElementsByTagName("input");
       if (this.$refs.title) {
         if (this.$refs.title.scrollHeight > this.$refs.title.clientHeight) {
           this.$refs.title.style.fontSize = "4vw";
@@ -85,10 +95,9 @@ export default {
       if (this.$refs.content) {
         console.log(this.$refs.content.scrollHeight, this.$refs.content.clientHeight);
         if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
-          var buttons = this.$refs.content.getElementsByTagName("button");
-          var inputs = this.$refs.content.getElementsByTagName("input");
           this.$refs.content.style.fontSize = ".8em";
           for (var i = 0; i < buttons.length; i++) {
+            console.log(buttons[i]);
             if (buttons[i]) {
               buttons[i].style.height = "40px";
               buttons[i].style.borderRadius = "40px";
@@ -157,18 +166,15 @@ export default {
     show(name) {
       if (name == "ending") {
         this.showEnding = true;
-        this.overflow();
       }
       if (name == "calculate") {
         this.showCalculate = true;
-        this.overflow();
       }
       if (name == "fee") {
         this.showFee = true;
         this.conversionFeeCurrency = null;
         this.conversionFee = 0;
         this.showCalculate = true;
-        this.overflow();
       }
     },
     starting(currency) {
@@ -186,7 +192,6 @@ export default {
     feeCurrency(currency) {
       this.conversionFeeCurrency = currency;
       this.showCalculated = false;
-      this.overflow();
     },
     fee(fee) {
       this.conversionFee = fee;
@@ -202,7 +207,6 @@ export default {
       this.conversionAmount = this.calculateConversion(this.startingAmount, this.startingCurrency, this.endingCurrency);
       this.showCalculate = false;
       this.showCalculated = true;
-      this.overflow();
     },
     calculateConversion(amount, from, to) {
       this.$store.dispatch({
