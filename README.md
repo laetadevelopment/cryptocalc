@@ -25,13 +25,13 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 #### v0.0 - Phase Zero
 
-##### v0.0.1 - replace default SSPWA branding with new branding
+##### v0.0.1 - ~~replace default SSPWA branding with new branding~~
 
 #### v0.1 - Phase One
 
-##### v0.1.1 - create new Truffle project
+##### v0.1.1 - ~~create new Truffle project~~
 
-##### v0.1.2 - create new Go project
+##### v0.1.2 - ~~create new Go project~~
 
 
 ## Version One
@@ -39,23 +39,19 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 #### v1.0 - Phase Zero
 
-##### v1.0.1 - create SSPWA scaffolding for DApp
+##### v1.0.1 - ~~create SSPWA scaffolding for DApp~~
 
-##### v1.0.2 - create Truffle scaffolding for smart contracts (allows you to connect your wallet and pull currency values through oracles)
+##### v1.0.2 - ~~create Truffle scaffolding for smart contracts (allows you to connect your wallet and pull currency values through oracles)~~
 
-##### v1.0.3 - create Go scaffolding for conversions microservice (allows you to save conversion chains and use them again)
+##### v1.0.3 - ~~create Go scaffolding for conversions microservice (allows you to save conversion chains and use them again)~~
 
 #### v1.1 - Phase One
 
-##### v1.1.1 - create logic and UI/UX to add currencies to currency selector dynamically
+##### v1.1.1 - refactor UI/UX in calculator view so it looks good on all devices
 
-##### v1.1.2 - create logic and UI/UX to add another conversion to conversion chain
+##### v1.1.2 - refactor logic for vuex state so wallet and contract interaction flows correctly
 
-##### v1.1.3 - create logic and UI/UX to save conversion chains via conversions microservice
-
-##### v1.1.4 - create logic and UI/UX to view and use saved conversion chains
-
-##### v1.1.5 - create logic and UI/UX to edit saved conversion chains
+##### v1.1.3 - create logic and UI/UX to connect MetaMask wallet on Kovan before being able to calculate conversion
 
 #### v1.2 - Phase Two
 
@@ -64,3 +60,21 @@ Enter your starting currency and amount to get started. Easily create a chain of
 ##### v1.2.2 - create test cases for project
 
 ##### v1.2.3 - create documentation for project
+
+#### v1.3 - Phase Three
+
+##### v1.3.1 - add ability to deploy to mainnet in Truffle scaffolding
+
+##### v1.3.2 - switch from Kovan testnet feed to mainnet feed in conversions smart contract
+
+##### v1.3.3 - deploy to mainnet and connect SSPWA to new contract
+
+#### v1.4 - Phase Four
+
+##### v1.4.1 - create logic and UI/UX to add currencies to currency selector dynamically
+
+##### v1.4.2 - create logic and UI/UX to add another conversion to conversion chain
+
+##### v1.4.3 - create logic and UI/UX to save conversion chains via conversions microservice
+
+##### v1.4.4 - create logic and UI/UX to view, use, and edit saved conversion chains
