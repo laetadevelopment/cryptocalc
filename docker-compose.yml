@@ -13,7 +13,7 @@ services:
     command:
         -grpc-port=9090
         -http-port=8080
-        -db-host=mongodb://172.25.0.1:27017
+        -db-host=mongodb://172.19.0.4:27017
         -log-level=-1
         -log-time-format=2006-01-02T15:04:05.999999999Z07:00
   mongodb:
