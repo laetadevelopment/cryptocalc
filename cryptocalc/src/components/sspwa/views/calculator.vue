@@ -23,7 +23,7 @@
       <div v-if="showCalculated" class="calculated" @change="overflow">
         <h3>{{ conversion }} is {{ conversionAmount }} {{ endingCurrency }}</h3>
         <div class="calculated-buttons">
-          <button class="background-animation" @click="save" disabled>Save Conversion</button>
+          <button class="background-animation" @click="save">Save Conversion</button>
           <button @click="reset">New Conversion</button>
         </div>
       </div>
@@ -70,12 +70,14 @@ export default {
         this.overflow();
       },
       deep: true
+    },
+    '$store.state.contract.conversion': function() {
+      this.calculate();
     }
   },
   methods: {
     // TODO: refactor this method to be dynamic and enlarge font as well
     overflow() {
-      console.log("check overflow");
       var buttons = this.$refs.content.getElementsByTagName("button");
       var inputs = this.$refs.content.getElementsByTagName("input");
       if (this.$refs.title) {
@@ -93,7 +95,6 @@ export default {
         }
       }
       if (this.$refs.content) {
-        console.log(this.$refs.content.scrollHeight, this.$refs.content.clientHeight);
         if (this.$refs.content.scrollHeight > this.$refs.content.clientHeight) {
           this.$refs.content.style.fontSize = ".8em";
           for (var i = 0; i < buttons.length; i++) {
@@ -179,6 +180,7 @@ export default {
     },
     starting(currency) {
       this.startingCurrency = currency;
+      this.showCalculated = false;
     },
     amount(amount) {
       this.startingAmount = amount;
@@ -188,6 +190,7 @@ export default {
     },
     ending(currency) {
       this.endingCurrency = currency;
+      this.showCalculated = false;
     },
     feeCurrency(currency) {
       this.conversionFeeCurrency = currency;
