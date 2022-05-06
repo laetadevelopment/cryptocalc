@@ -23,7 +23,7 @@
       <div v-if="showCalculated" class="calculated" @change="overflow">
         <h3>{{ conversion }} is {{ conversionAmount }} {{ endingCurrency }}</h3>
         <div class="calculated-buttons">
-          <button class="background-animation" @click="save" disabled>Save Conversion</button>
+          <button class="background-animation" @click="save">Save Conversion</button>
           <button @click="reset">New Conversion</button>
         </div>
       </div>
@@ -70,6 +70,9 @@ export default {
         this.overflow();
       },
       deep: true
+    },
+    '$store.state.contract.conversion': function() {
+      this.calculate();
     }
   },
   methods: {
