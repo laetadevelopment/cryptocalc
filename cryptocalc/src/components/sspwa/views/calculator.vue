@@ -213,9 +213,11 @@ export default {
           this.showCalculate = false;
           this.showCalculated = true;
         } else {
+          alert('You must be connected to Kovan testnet');
           this.$store.dispatch('switchNetwork');
         }
       } else {
+        alert('You must have MetaMask installed');
         this.$store.dispatch('installMetamask');
       }
     },
