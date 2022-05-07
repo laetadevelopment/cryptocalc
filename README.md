@@ -59,7 +59,7 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 ##### v1.2.2 - ~~switch from Kovan testnet feed to mainnet feed in conversions smart contract~~
 
-##### v1.2.3 - deploy to mainnet and connect SSPWA to new contract
+##### v1.2.3 - ~~deploy to mainnet and connect SSPWA to new contract~~
 
 #### v1.3 - Phase Three
 
