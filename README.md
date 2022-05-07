@@ -53,7 +53,7 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 ##### v1.1.3 - ~~create logic and UI/UX to install and connect MetaMask wallet to Kovan testnet before being able to calculate conversion~~
 
-#### v1.3 - Phase Two
+#### v1.2 - Phase Two
 
 ##### v1.2.1 - ~~add ability to deploy to mainnet in Truffle scaffolding~~
 
