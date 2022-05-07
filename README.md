@@ -55,7 +55,7 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 #### v1.3 - Phase Two
 
-##### v1.2.1 - add ability to deploy to mainnet in Truffle scaffolding
+##### v1.2.1 - ~~add ability to deploy to mainnet in Truffle scaffolding~~
 
 ##### v1.2.2 - switch from Kovan testnet feed to mainnet feed in conversions smart contract
 
