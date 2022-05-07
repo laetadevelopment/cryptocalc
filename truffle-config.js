@@ -19,9 +19,7 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(mainnetkey, mainneturl)
       },
-      network_id: '1',
-      gas: 828355,
-      gasPrice: 30000000000
+      network_id: '1'
     }
   },
 

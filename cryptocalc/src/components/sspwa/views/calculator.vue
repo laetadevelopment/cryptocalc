@@ -204,7 +204,7 @@ export default {
     },
     calculate() {
       if (this.$store.state.metamask.installed) {
-        if (this.$store.state.metamask.ethereum.networkVersion == 1) {
+        if (this.$store.state.metamask.ethereum.networkVersion == 42) {
           this.conversion = this.startingAmount + ' ' + this.startingCurrency + ' to ' + this.endingCurrency;
           if (this.conversionFeeCurrency) {
             this.conversion = this.conversion + ' with a ' + this.conversionFee + ' ' + this.conversionFeeCurrency + ' fee';
@@ -213,7 +213,7 @@ export default {
           this.showCalculate = false;
           this.showCalculated = true;
         } else {
-          alert('You must be connected to Ethereum Mainnet');
+          alert('You must be connected to Kovan testnet');
           this.$store.dispatch('switchNetwork');
         }
       } else {
