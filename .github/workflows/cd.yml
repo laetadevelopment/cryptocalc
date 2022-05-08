@@ -16,3 +16,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CRYPTOCALC_DAPP }}'
           channelId: live
           projectId: cryptocalc-dapp
+          entryPoint: "./cryptocalc"
