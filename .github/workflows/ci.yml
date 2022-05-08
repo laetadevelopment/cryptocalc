@@ -1,0 +1,13 @@
+name: Continuous Integration
+on:
+  pull_request:
+    types:
+      - opened
+    branches:    
+      - 'v**'
+
+jobs:
+  test:
+    steps:
+      - name: Start Tests
+        run: echo 'Ready to start testing.'

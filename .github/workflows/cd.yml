@@ -1,7 +1,8 @@
-name: Deploy to Firebase
+name: Continuous Deployment
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build_and_deploy:
