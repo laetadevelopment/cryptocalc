@@ -1,7 +1,7 @@
 {
   "name": "CryptoCalc",
   "short_name": "CryptoCalc",
-  "description": "A DApp that allows you to convert any currency (digital or fiat)",
+  "description": "The mission of the CryptoCalc DApp is to create a decentralized, open source DApp that allows you to convert any currency (digital or fiat).",
   "background_color": "#009AF4",
   "theme_color": "#009AF4",
   "icons": [
