@@ -63,7 +63,7 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 #### v1.3 - Phase Three
 
-##### v1.3.1 - create CI/CD pipeline for project
+##### v1.3.1 - ~~create CI/CD pipeline for project~~
 
 ##### v1.3.2 - create test cases for project
 
