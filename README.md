@@ -71,10 +71,26 @@ Enter your starting currency and amount to get started. Easily create a chain of
 
 #### v1.4 - Phase Four
 
-##### v1.4.1 - create logic and UI/UX to add currencies to currency selector dynamically
+##### v1.4.1 - create logic and UI/UX to add another conversion to conversion chain
 
-##### v1.4.2 - create logic and UI/UX to add another conversion to conversion chain
+##### v1.4.2 - create logic and UI/UX to save conversion chains via conversions microservice
 
-##### v1.4.3 - create logic and UI/UX to save conversion chains via conversions microservice
+##### v1.4.3 - create logic and UI/UX to view, use, and edit saved conversion chains
 
-##### v1.4.4 - create logic and UI/UX to view, use, and edit saved conversion chains
+##### v1.4.4 - create logic and UI/UX to convert ETH in MetaMask Wallet to USD
+
+##### v1.4.5 - create logic and UI/UX to connect to Coinbase Wallet
+
+
+## Version Two
+
+
+#### v2.0 - Phase Zero
+
+##### v2.0.1 - create SSPWA scaffolding to get values of more currencies from smart contracts
+
+##### v2.0.2 - create Truffle scaffolding to add ability to get more price feeds from Chainlink Oracles
+
+#### v2.1 - Phase One
+
+##### v2.1.1 - create logic and UI/UX to add currencies to currency selector dynamically
